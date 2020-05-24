@@ -15,7 +15,6 @@ class App extends Component {
   }
 
   handleGaugeChange(e) {
-    console.log(e.target.value);
     this.setState({gaugeValue: e.target.value})
   }
 

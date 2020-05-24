@@ -7,16 +7,30 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'React'
+      name: 'React',
+      gaugeValue: 50
     };
+
+    this.handleGaugeChange = this.handleGaugeChange.bind(this);
+  }
+
+  handleGaugeChange(e) {
+    console.log(e.target.value);
+    this.setState({gaugeValue: e.target.value})
   }
 
   render() {
     return (
       <div>
-        <Gauge />
+        <Gauge value={this.state.gaugeValue} />
+        <form>
+          <div class="form-group">
+            <input type="range" class="form-control-range" id="formControlRange" value={this.state.value} 
+      onChange={this.handleGaugeChange}/>
+          </div>
+        </form>
         <p>
-         D3 gauge from tutorial https://wattenberger.com/blog/gauge
+         D3 gauge https://wattenberger.com/blog/gauge
         </p>
       </div>
     );
